@@ -1,0 +1,16 @@
+<%# nav.ejs %>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="/events">All</a>
+            </li>
+            <% categories.forEach(category=> { %>
+                <li>
+                    <a href="/events?category=<%=category%>">
+                        <%= category[0].toUpperCase() + category.slice(1) %>
+                    </a>
+                </li>
+                <% }); %>
+        </ul>
+    </nav>

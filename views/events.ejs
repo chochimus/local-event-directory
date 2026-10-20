@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Directory</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <%- include('nav', { categories }) %>
+        <% if (events.length===0) { %>
+            <h2>No events found in this category</h2>
+            <% } else { %>
+                <ul>
+
+                    <% events.forEach(event=> { %>
+                        <li>
+                            <a href="/events/<%= event.id %>">
+                                <article>
+                                    <h2>
+                                        <%= event.title %>
+                                    </h2>
+                                    <p>
+                                        <%= event.date %>
+                                    </p>
+                                    <p>
+                                        <%= event.location %>
+                                    </p>
+                                    <p>
+                                        <%= event.category[0].toUpperCase() + event.category.slice(1) %>
+                                    </p>
+                                    <p>
+                                        <%= event.summary %>
+                                    </p>
+                                </article>
+                            </a>
+                        </li>
+                        <% }) %>
+
+                </ul>
+                <% } %>
+</body>
+
+</html>
